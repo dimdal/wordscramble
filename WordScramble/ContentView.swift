@@ -20,6 +20,10 @@ struct ContentView: View {
     @State private var currentWordScore: Int = 0
     @State private var isInstructionsExpanded = false // State to control the expansion of the instructions
     
+    // Define an animation state for the swipe effect
+    @State private var wordOffset: CGFloat = 0 // For animating the word's position
+    @State private var opacity: Double = 1.0 // For animating the word's opacity
+    
     var body: some View {
         NavigationStack {
             
@@ -30,7 +34,34 @@ struct ContentView: View {
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .center) // Center the text in the available space
-
+                    .opacity(opacity) // Use opacity for animation
+                    .offset(x: wordOffset, y: 0) // Use offset for animation
+                // Add a swipe gesture
+                    .gesture(
+                        DragGesture()
+                            .onEnded { gesture in
+                                if gesture.translation.width < 0 {
+                                    // Swipe left to change the word
+                                    withAnimation(.easeOut(duration: 0.2)) {
+                                        wordOffset = -UIScreen.main.bounds.width
+                                        opacity = 0.0
+                                    }
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                        refreshRootWord()
+                                    }
+                                }
+                            }
+                    )
+                    .onChange(of: rootWord) {
+                        // Animate the new word swiping in from the right
+                        wordOffset = UIScreen.main.bounds.width
+                        opacity = 0.0
+                        withAnimation(.easeIn(duration: 0.2)) {
+                            wordOffset = 0
+                            opacity = 1.0
+                        }
+                    }
+                
                 
                 Section {
                     TextField("Enter your word", text: $newWord)

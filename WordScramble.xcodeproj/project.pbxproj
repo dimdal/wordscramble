@@ -12,7 +12,6 @@
 		1E988A0F2B8272FA0061DCAE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E988A0E2B8272FA0061DCAE /* ContentView.swift */; };
 		1E988A112B8272FB0061DCAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E988A102B8272FB0061DCAE /* Assets.xcassets */; };
 		1E988A142B8272FB0061DCAE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E988A132B8272FB0061DCAE /* Preview Assets.xcassets */; };
-		1E988A1B2B84B7E70061DCAE /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1E988A1A2B84B7E70061DCAE /* start.txt */; };
 		1E988A1D2B84BC090061DCAE /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1E988A1C2B84BC090061DCAE /* start.txt */; };
 /* End PBXBuildFile section */
 
@@ -137,7 +136,6 @@
 				1E8342852B87CB280084EB4B /* Swedish.txt in Resources */,
 				1E988A142B8272FB0061DCAE /* Preview Assets.xcassets in Resources */,
 				1E988A1D2B84BC090061DCAE /* start.txt in Resources */,
-				1E988A1B2B84B7E70061DCAE /* start.txt in Resources */,
 				1E988A112B8272FB0061DCAE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
